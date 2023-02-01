@@ -35,6 +35,13 @@ con.connect(function (err) {
     if (err) throw err;
     console.log("Connected to joga_mysql db");
 })
+const articleRoutes = require('./routes/article'); // import article route
+
+// to use article routes
+app.use('/', articleRoutes);
+app.use('/article', articleRoutes)
+
+
 // show all articles - index page
 app.get('/', (req, res) => {
     let query = "SELECT * FROM article";
